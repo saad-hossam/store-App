@@ -1,0 +1,18 @@
+<nav>
+    <div class="container">
+        <div class="content">
+            <h2 class="logo fs-1"> Products</h2>
+            <ul>
+                <!-- <li class="fs-3" routerLink="/Products">Products</li> -->
+            
+                    <li routerLinkActive="active"
+               class="fs-3" routerLink="/register">register</li>
+              <li  routerLinkActive="active"
+              class="fs-3" routerLink="/login">login</li>
+              <li routerLink="/carts" class="fs-2" ><i style="color: white;" class="fs-2 bi bi-cart"></i>
+                {{cartProduct.length}} </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>

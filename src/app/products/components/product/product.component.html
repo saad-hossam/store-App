@@ -1,0 +1,73 @@
+
+
+
+
+<div class="item">
+    <div routerLink="/details/{{data.id}}">
+    <img src="{{data.image}}" alt="">
+    <div class="body">
+        <h4>{{data.title}}</h4>
+        <p>{{data.description}}</p>
+    </div>
+
+</div>
+    <div class="px-3 mb-2 d-flex  justify-content-between align-items-center">
+        <button class="btn btn-success" *ngIf="!addButton" (click)="addButton = true">Add To Cart</button>
+        <div class="d-flex w-50" *ngIf="addButton" >
+        <input type="number" class="form-control" [(ngModel)]="amount"/>
+        <button class="btn btn-danger" (click)="add();addButton = false" > add</button>
+    </div>
+        <span>{{data.price}}</span>
+    </div>
+    <!-- <div class="cartBox">
+  
+        <h3 class=" text-danger">Shopping Cart</h3>
+        <div class="headCart">
+          <p class="lead">you have<label class="text-danger">2</label> item in your cart  </p>
+            <span class="text-danger card-header"> clear shopping cart</span>
+        </div>
+
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th></th>
+        <th>name</th>
+        <th>price </th>
+        <th style="width: 25%;">quantity</th>
+        <th> toatal</th>
+        <th></th>
+    </tr>
+</thead>
+
+    <tbody>
+        <tr *ngFor="let item of cartProduct">
+            <td><img src="{{item.item.image}}" alt=""></td>
+            <td>{{item.item.title}}</td>
+            <td>{{item.item.price}} L.E</td>
+            <td>
+                <div class="quantity">
+                    <button class="btn btn-dark">+</button>
+                    <input type="number" min="1" class="form-control" ngModel="{{item.quantity}}">
+                    <button class="btn btn-dark">-</button>
+                </div>
+            </td>
+            <td>{{item.item.price*item.quantity}} L.E</td>
+            <td >    <button class="btn btn-danger">Delete</button>                </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>total : 1500</th>
+            <th><button class="btn btn-success">Order Now</button> </th>
+        </tr>
+    </tfoot>
+</table>
+
+<div class=" alert alert-success " role="alert"><strong>well done!</strong> your order is successfully send</div>
+      
+
+    </div> -->

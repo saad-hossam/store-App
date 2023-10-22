@@ -1,0 +1,172 @@
+    
+      <form>
+        <div class="text-center mb-3">
+          <p>Sign up with:</p>
+          
+        </div>
+  
+        <form [formGroup]="registerForm"   (ngSubmit)="submitregisterForm()">
+
+ <!-- name input -->
+
+ <div class="form-outline mb-4">
+          <label class="form-label" for="Name">Name </label>
+          <input type="text"
+           id="loginName" 
+           class="form-control" 
+           aria-describedby="name_input_help"
+           formControlName="Name"
+           />
+           <div
+            id="name_input_help"
+            *ngIf="
+            registerForm.controls['Name'].touched &&
+            registerForm.controls['Name'].invalid"
+            
+            class="form-text text-danger fs-4"
+            >
+        <small *ngIf="registerForm.controls['Name'].errors?.['required']"
+          >This field is required</small
+        >
+        
+      </div>
+    </div>
+  
+<!-- Email input -->
+          <div class="form-outline mb-4">
+          <label class="form-label" for="loginName">Email </label>
+          <input type="email"
+           id="loginEmail" 
+           class="form-control" 
+           aria-describedby="name_input_help"
+           formControlName="email"
+           />
+           <div
+            id="name_input_help"
+            *ngIf="
+            registerForm.controls['email'].touched &&
+            registerForm.controls['email'].invalid
+            "
+            class="form-text text-danger fs-4"
+            >
+        
+        <small *ngIf="registerForm.controls['email'].errors?.['required']"
+            >This field is required</small
+        >
+        <small *ngIf="registerForm.controls['email'].errors?.['email']"
+            >this field must be an email format</small
+        >
+      </div>
+    </div>
+
+<!-- userName input -->
+
+ <div class="form-outline mb-4">
+    <label class="form-label" for="Name">userName </label>
+    <input type="text"
+     id="loginuserName" 
+     class="form-control" 
+     aria-describedby="name_input_help"
+     formControlName="userName"
+     />
+     <div
+      id="userName_input_help"
+      *ngIf="
+      registerForm.controls['userName'].touched &&
+      registerForm.controls['userName'].invalid"
+      
+      class="form-text text-danger fs-4"
+      >
+  <small *ngIf="registerForm.controls['userName'].errors?.['required']"
+    >This field is required</small
+  >
+  <small *ngIf="registerForm.controls['userName'].errors?.['noSpaceAllowed']"
+    >This field must have no space</small
+  >
+  
+</div>
+</div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="loginPassword">Password</label>
+          <input 
+          type="password" 
+          id="loginPassword" 
+          class="form-control" 
+          aria-describedby="password_input_help"
+          formControlName="Password"
+          ng-pattern="/^(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$/"
+          />
+          <div
+          id="password_input_help"
+          *ngIf="
+          registerForm.controls['Password'].touched &&
+          registerForm.controls['Password'].invalid
+          "
+          class="form-text text-danger"
+>        
+          <small class="fs-4 text-danger" *ngIf="registerForm.controls['Password'].errors?.['required']"
+            >This field is required</small
+            > 
+       
+            <div class="text-danger fs-4"  >Password should be at least 8 characters
+                long and should contain one number,one character and one special
+                character</div>
+              </div>
+           
+            <small class="text-danger fs-4"  *ngIf="registerForm.controls['Password'].errors?.['minlength']"
+          >Min. characters is 8</small
+        >
+     
+        </div>
+  
+ <!-- confirmedPassword input -->
+ <div class="form-outline mb-4">
+    <label class="form-label" for="loginPassword">confirmed Password</label>
+    <input 
+    type="password" 
+    id="loginconfirmedPassword" 
+    class="form-control" 
+    aria-describedby="confirmedPassword_input_help"
+    formControlName="confirmedPassword"
+ 
+    />
+    <div
+    id="confirmedPassword_input_help"
+    *ngIf="
+    registerForm.controls['confirmedPassword'].touched &&
+    registerForm.controls['confirmedPassword'].invalid
+    "
+    class="form-text text-danger fs-4"
+
+   >
+  
+    <small *ngIf="registerForm.controls['confirmedPassword'].errors?.['required']"
+      >This field is required</small
+    > 
+ 
+     
+      <small *ngIf="registerForm.controls['confirmedPassword'].errors?.['confirmedValidator']"
+    >confirmed Password not match Password</small
+  >
+
+  </div>
+  </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn w-100 btn-primary btn-block mb-4 " (click)="redirectTologin()" [disabled]="registerForm.invalid">Sign in</button>
+    </form>
+
+  <!-- Pills content -->
+  <script>
+    // Code goes here
+
+var app = angular.module('demoApp',['ngMessages']);
+
+app.controller('demoCtrl',function($scope){
+  $scope.newUser = {
+    userPassword:''
+  };
+});
+  </script>
